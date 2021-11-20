@@ -12,7 +12,7 @@ pool:
 variables:
   directory: brewlog-app
   stage: production
-  serviceConnection: jenshenrik
+  serviceConnection: brewlog-azure-service
   appServiceName: brewlog-app
 
 steps:
