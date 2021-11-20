@@ -29,12 +29,12 @@ steps:
 - script: 
     set "REACT_APP_STAGE=$(stage)" && npm run build
   displayName: 'npm build'
-  workingDirectory: $(directory)
+  #workingDirectory: $(directory)
  
 - task: CopyFiles@2
   displayName: 'Copy files'
   inputs:
-    sourceFolder: '$(directory)/build' 
+    sourceFolder: 'build' 
     Contents: '**/*'
     TargetFolder: '$(Build.ArtifactStagingDirectory)'
     cleanTargetFolder: true
