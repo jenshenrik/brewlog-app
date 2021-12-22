@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 
-import RecipeListElement, { RecipeListElementModel } from './components/recipes/RecipeListElement';
+import RecipeListElement from './components/recipes/RecipeListElement';
 
 function App() {
 
-  const [recipes, setRecipes] = useState<RecipeListElementModel[]>([]);
+  const [recipes, setRecipes] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMoviesHandler = () => {
