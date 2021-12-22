@@ -1,12 +1,10 @@
 import { useEffect, useState } from 'react';
 
-interface Recipe {
-  name: string;
-}
+import RecipeListElement, { RecipeListElementModel } from './components/recipes/RecipeListElement';
 
 function App() {
 
-  const [recipes, setRecipes] = useState<Recipe[]>([]);
+  const [recipes, setRecipes] = useState<RecipeListElementModel[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   const fetchMoviesHandler = () => {
@@ -29,15 +27,12 @@ function App() {
   }, []);
 
   return (
-    <div className="App">
-      <header className="App-header">
+    <div>
+      <header>
         
       </header>
       <body>
-        {!isLoading && recipes.length > 0 &&
-        <ul>
-          { recipes.map(r => <li>{r.name}</li>)}
-        </ul>}
+        {!isLoading && recipes.length > 0 && recipes.map(r => <RecipeListElement recipe={r} />)}
         {!isLoading && recipes.length === 0 && <p>No recipes found.</p>}
         {isLoading && <p>Loading...</p>}
       </body>
