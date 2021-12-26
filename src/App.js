@@ -10,10 +10,8 @@ function App() {
   const fetchMoviesHandler = () => {
     setIsLoading(true);
     fetch('https://brewlog-api.azurewebsites.net/recipes').then(response => {
-      console.log("response", response);
       return response.json();
     }).then(data => {
-      console.log("data", data);
       setRecipes(data);
       setIsLoading(false);
     }).catch(error => {
@@ -28,14 +26,9 @@ function App() {
 
   return (
     <div>
-      <header>
-        
-      </header>
-      <body>
-        {!isLoading && recipes.length > 0 && recipes.map(r => <RecipeListElement recipe={r} />)}
-        {!isLoading && recipes.length === 0 && <p>No recipes found.</p>}
-        {isLoading && <p>Loading...</p>}
-      </body>
+      {!isLoading && recipes.length > 0 && recipes.map(r => <RecipeListElement recipe={r} key={r.id} />)}
+      {!isLoading && recipes.length === 0 && <p>No recipes found.</p>}
+      {isLoading && <p>Loading...</p>}
     </div>
   );
 }
